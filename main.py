@@ -8,6 +8,12 @@ from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
 
 from windows_mode import keypress as windows_keypress
 from windows_mode import get_macros as get_windows_macros
+from music_mode import keypress as music_keypress
+from music_mode import get_macros as get_music_macros
+from obsidian_mode import keypress as obsidian_keypress
+from obsidian_mode import get_macros as get_obsidian_macros
+from fusion_mode import keypress as fusion_keypress
+from fusion_mode import get_macros as get_fusion_macros
 
 #Set up buttons
 buttons = [board.GP2,board.GP3,board.GP4,board.GP5,board.GP6,board.GP7]
@@ -43,6 +49,12 @@ mode = 1
 def send(btn):
     if mode == 1:
         windows_keypress(btn, cc, keyboard, write_text)
+    elif mode == 2:
+        music_keypress(btn, cc, keyboard, write_text)
+    elif mode == 3:
+        obsidian_keypress(btn, cc, keyboard, write_text)
+    elif mode == 4:
+        fusion_keypress(btn, cc, keyboard, write_text)
 
 while True:
     #Check change mode button
